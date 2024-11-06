@@ -15,7 +15,7 @@ jobs:
     - name: Setup Golang
       uses: actions/setup-go@v5
       with:
-        go-version: '1.20'
+        go-version: '1.23'
   
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
     - name: Setup JDK
       uses: actions/setup-java@v4
       with:
-        java-version: 17
+        java-version: 21
         distribution: 'temurin'
         
     - name: Setup Android SDK Tools
@@ -34,7 +34,7 @@ jobs:
     - name: Setup Android NDK
       uses: nttld/setup-ndk@v1.5.0
       with:
-        ndk-version: 'r26b'
+        ndk-version: 'r28'
         link-to-sdk: true
     - name: Setup Go Mobile
       run: |
@@ -48,7 +48,7 @@ jobs:
          cp -v data/*.dat assets/
          gomobile init
          go mod tidy
-         gomobile bind -v -androidapi 19 -ldflags='-s -w' ./
+         gomobile bind -v -androidapi 34 -ldflags='-s -w' ./
     - name: Upload AndroidLibV2rayLite to release
       uses: svenstaro/upload-release-action@v2
       with:
